@@ -1,5 +1,5 @@
 name: xylophone
-description: A new Flutter application.
+description: Xylophone music player
 
 version: 1.0.0+1
 
@@ -11,6 +11,9 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.2
+#  flutter_audio_player:
+#    path: ../../packages/audio_player/
+  audioplayers: ^0.14.0
 
 dev_dependencies:
   flutter_test:
