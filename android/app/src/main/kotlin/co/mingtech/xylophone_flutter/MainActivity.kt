@@ -1,4 +1,4 @@
-package co.appbrewery.xylophone_flutter
+package co.mingtech.xylophone_flutter
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
