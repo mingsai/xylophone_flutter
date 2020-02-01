@@ -54,96 +54,33 @@ class MyApp extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Expanded(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Expanded(
-                      child: MusicKey(
-                        color: Colors.yellow,
-                        tone: 1,
-                      ),
-                    ),
-                  ],
-                ),
+              MusicKeyRow(
+                color: Colors.yellow,
+                tone: 1,
               ),
-              Expanded(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Expanded(
-                      child: MusicKey(
-                        color: Colors.redAccent,
-                        tone: 2,
-                      ),
-                    ),
-                  ],
-                ),
+              MusicKeyRow(
+                color: Colors.redAccent,
+                tone: 2,
               ),
-              Expanded(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Expanded(
-                      child: MusicKey(
-                        color: Colors.blueGrey,
-                        tone: 3,
-                      ),
-                    ),
-                  ],
-                ),
+              MusicKeyRow(
+                color: Colors.purple,
+                tone: 3,
               ),
-              Expanded(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Expanded(
-                      child: MusicKey(
-                        color: Colors.orangeAccent,
-                        tone: 4,
-                      ),
-                    ),
-                  ],
-                ),
+              MusicKeyRow(
+                color: Colors.orangeAccent,
+                tone: 4,
               ),
-              Expanded(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Expanded(
-                      child: MusicKey(
-                        color: Colors.lightGreen,
-                        tone: 5,
-                      ),
-                    ),
-                  ],
-                ),
+              MusicKeyRow(
+                color: Colors.lightGreen,
+                tone: 5,
               ),
-              Expanded(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Expanded(
-                      child: MusicKey(
-                        color: Colors.brown,
-                        tone: 6,
-                      ),
-                    ),
-                  ],
-                ),
+              MusicKeyRow(
+                color: Colors.brown,
+                tone: 6,
               ),
-              Expanded(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Expanded(
-                      child: MusicKey(
-                        color: Colors.tealAccent,
-                        tone: 7,
-                      ),
-                    ),
-                  ],
-                ),
+              MusicKeyRow(
+                color: Colors.amberAccent,
+                tone: 7,
               ),
             ],
           ),
