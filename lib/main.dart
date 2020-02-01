@@ -49,11 +49,103 @@ class MyApp extends StatelessWidget {
           backgroundColor: appTheme.primaryColorDark,
         ),
         body: SafeArea(
-          child: Container(
-            child: MusicKey(
-              color: Colors.yellow,
-              tone: 2,
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Expanded(
+                      child: MusicKey(
+                        color: Colors.yellow,
+                        tone: 1,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Expanded(
+                      child: MusicKey(
+                        color: Colors.redAccent,
+                        tone: 2,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Expanded(
+                      child: MusicKey(
+                        color: Colors.blueGrey,
+                        tone: 3,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Expanded(
+                      child: MusicKey(
+                        color: Colors.orangeAccent,
+                        tone: 4,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Expanded(
+                      child: MusicKey(
+                        color: Colors.lightGreen,
+                        tone: 5,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Expanded(
+                      child: MusicKey(
+                        color: Colors.brown,
+                        tone: 6,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Expanded(
+                      child: MusicKey(
+                        color: Colors.tealAccent,
+                        tone: 7,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),
@@ -78,13 +170,13 @@ class _MusicKeyState extends State<MusicKey> {
   void activate() {
     //animate to larger scale
     //play sound
-    SoundPlayerUtil.addSoundName('assets/note$widget.tone.wav');
+    final int tone = widget.tone;
+    SoundPlayerUtil.addSoundName('note$tone.wav');
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16.0),
       color: widget.color,
       child: FlatButton(
           onPressed: () {
@@ -102,22 +194,54 @@ class SoundPlayerUtil {
   static AudioCache player = AudioCache();
   static void addSoundName(String name, {int count = 1}) {
     SoundPlayerUtil.player.play(name);
-//    SoundPlayerUtil.player.play(name);
   }
 
   static void loadAllSound() {
     SoundPlayerUtil.player.loadAll([
-      'assets/note1.wav',
-      'assets/note2.wav',
-      'assets/note3.wav',
-      'assets/note4.wav',
-      'assets/note5.wav',
-      'assets/note6.wav',
-      'assets/note7.wav'
+      'note1.wav',
+      'note2.wav',
+      'note3.wav',
+      'note4.wav',
+      'note5.wav',
+      'note6.wav',
+      'note7.wav'
     ]);
   }
 
   static void removeAllSound() {
     SoundPlayerUtil.player.clearCache();
+  }
+}
+
+class MusicKeyRow extends StatefulWidget {
+  final Color color;
+  final int tone;
+
+  MusicKeyRow({
+    Key key,
+    this.color,
+    this.tone,
+  }) : super(key: key);
+
+  @override
+  _MusicKeyRowState createState() => _MusicKeyRowState();
+}
+
+class _MusicKeyRowState extends State<MusicKeyRow> {
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Expanded(
+            child: MusicKey(
+              color: widget.color,
+              tone: widget.tone,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
