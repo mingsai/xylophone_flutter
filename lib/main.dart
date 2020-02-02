@@ -168,16 +168,9 @@ class _MusicKeyRowState extends State<MusicKeyRow> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Expanded(
-            child: MusicKey(
-              color: widget.color,
-              tone: widget.tone,
-            ),
-          ),
-        ],
+      child: MusicKey(
+        color: widget.color,
+        tone: widget.tone,
       ),
     );
   }
