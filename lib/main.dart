@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:audioplayers/audio_cache.dart';
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter_audio_player/flutter_audio_player.dart';
+
+import 'musickey_row.dart';
+import 'soundplayerutil.dart';
 
 ThemeData appTheme = new ThemeData(
   primaryColor: const Color(0xFF03A9F4),
@@ -15,8 +15,6 @@ ThemeData appTheme = new ThemeData(
   canvasColor: const Color(0xFFfafafa),
   textSelectionColor: const Color(0xFF757575),
 );
-
-final player = AudioPlayer(playerId: 'my_unique_playerId');
 
 void main() {
   _setTargetPlatformForDesktop();
@@ -85,92 +83,6 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class MusicKey extends StatefulWidget {
-  final Color color;
-  final int tone;
-
-  MusicKey({
-    Key key,
-    this.color,
-    this.tone,
-  }) : super(key: key);
-  @override
-  _MusicKeyState createState() => _MusicKeyState();
-}
-
-class _MusicKeyState extends State<MusicKey> {
-  void activate() {
-    //animate to larger scale
-    //play sound
-    final int tone = widget.tone;
-    SoundPlayerUtil.addSoundName('note$tone.wav');
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: widget.color,
-      child: FlatButton(
-          onPressed: () {
-            setState(() {
-              //play sound
-              activate();
-            });
-          },
-          child: null),
-    );
-  }
-}
-
-class SoundPlayerUtil {
-  static AudioCache player = AudioCache();
-  static void addSoundName(String name, {int count = 1}) {
-    SoundPlayerUtil.player.play(name);
-  }
-
-  static void loadAllSound() {
-    SoundPlayerUtil.player.loadAll([
-      'note1.wav',
-      'note2.wav',
-      'note3.wav',
-      'note4.wav',
-      'note5.wav',
-      'note6.wav',
-      'note7.wav'
-    ]);
-  }
-
-  static void removeAllSound() {
-    SoundPlayerUtil.player.clearCache();
-  }
-}
-
-class MusicKeyRow extends StatefulWidget {
-  final Color color;
-  final int tone;
-
-  MusicKeyRow({
-    Key key,
-    this.color,
-    this.tone,
-  }) : super(key: key);
-
-  @override
-  _MusicKeyRowState createState() => _MusicKeyRowState();
-}
-
-class _MusicKeyRowState extends State<MusicKeyRow> {
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: MusicKey(
-        color: widget.color,
-        tone: widget.tone,
       ),
     );
   }
